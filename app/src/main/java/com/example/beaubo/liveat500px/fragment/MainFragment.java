@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class MainFragment extends Fragment {
     SwipeRefreshLayout swipeRefreshLayout;
 
     PhotoListManager photoListManager;
+    Button btnNewPhotos;
 
     public MainFragment() {
         super();
@@ -58,6 +60,7 @@ public class MainFragment extends Fragment {
     private void initInstances(View rootView) {
 
         photoListManager = new PhotoListManager();
+        btnNewPhotos = (Button) rootView.findViewById(R.id.btnNewPhotos);
 
         // Init 'View' instance(s) with rootView.findViewById here
         listView = (ListView)rootView.findViewById(R.id.listView);
@@ -220,5 +223,13 @@ public class MainFragment extends Fragment {
         if (savedInstanceState != null) {
             // Restore Instance State here
         }
+    }
+    public void showButtonNewPhotos(){
+        btnNewPhotos.setVisibility(View.VISIBLE);
+
+    }
+    public void hideButtonNewPhotos(){
+        btnNewPhotos.setVisibility(View.GONE);
+
     }
 }
